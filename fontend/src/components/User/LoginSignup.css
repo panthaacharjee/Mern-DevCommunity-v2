@@ -1,0 +1,52 @@
+.LoginSignup-container {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.LoginSignup-box {
+  /* height: 200px; */
+  background: aliceblue;
+  width: 35%;
+  margin-top: 150px;
+  border-radius: 15px;
+  padding: 30px 20px;
+}
+.LoginSignup-box > h2 {
+  text-align: center;
+}
+
+.LoginSignup-box > form > div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.LoginSignup-box > form > div > input {
+  width: 95%;
+  padding: 6px 5px;
+}
+.LoginSignup-box > form > div > label {
+  margin-bottom: 5px;
+}
+.LoginSignup-box > form > div > a {
+  text-align: end;
+  font-size: 14px;
+  /* margin-top: 20px; */
+}
+.LoginSignup-box > form > button {
+  width: 97.9%;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(0, 142, 155);
+  color: #fff;
+}
+
+.register-link > a {
+  text-align: center !important;
+  font-size: 14px;
+  color: #000;
+}

@@ -1,0 +1,17 @@
+.sidebar-box {
+  padding: 80px 0px;
+}
+
+.sidebar-box > a {
+  display: flex;
+  align-items: center;
+  color: #000;
+  border-bottom: 1px solid #d8d8d8;
+  padding: 10px 20px;
+}
+
+.sidebar-box > a > span {
+  font-size: 25px;
+  margin-right: 10px;
+  margin-top: 10px;
+}

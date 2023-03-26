@@ -1,0 +1,80 @@
+.userOption-box {
+  width: 300px;
+  background-color: rgb(201, 201, 201);
+  position: fixed;
+  top: 70px;
+  right: 10px;
+  z-index: 111;
+  display: none;
+  padding: 10px 0px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 0px #cbcbcb95;
+}
+
+.userOption-show {
+  display: block;
+}
+
+.userOption-box > div {
+  border-bottom: 1px solid #a1a1a19d;
+  padding: 10px 10px;
+}
+
+.porfile-details-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.porfile-details-content > img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.porfile-details-content > div > p {
+  font-size: 13px;
+}
+.profile-details > div > a {
+  border: 1px solid rgb(0, 238, 255);
+  padding: 5px 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  margin: 0px auto;
+}
+.profile-details > div > a:hover {
+  border: 1px solid none;
+  background: rgb(0, 238, 255);
+}
+
+.account-management > div {
+  display: flex;
+}
+.account-management > div > span {
+  margin-right: 5px;
+}
+.account-management > div > p {
+  font-size: 12px;
+}
+
+.account-management > li > a {
+  font-size: 12px;
+  color: #4c4c4c;
+}
+.account-management > li > a:hover {
+  text-decoration: underline;
+}
+.login {
+  /* width: 100%; */
+  text-align: center;
+}
+.login > a {
+  background-color: rgb(0, 238, 255);
+  padding: 8px 40px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #000;
+  border-radius: 20px;
+}

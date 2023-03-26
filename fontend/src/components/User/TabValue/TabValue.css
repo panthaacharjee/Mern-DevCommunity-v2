@@ -1,0 +1,253 @@
+/* Edit Btn */
+.edit-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* About */
+.about-container {
+  background: rgb(208, 208, 208);
+  min-height: 200px;
+  padding: 10px;
+}
+.about-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.about-container > p {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.skill-container {
+  background: rgb(208, 208, 208);
+  /* min-height: 200px; */
+  padding: 10px;
+  margin: 10px 0px;
+}
+.skill-container > div {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  width: 100%;
+}
+
+.skill-box {
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap; */
+  display: flex;
+  flex-basis: content;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.skill-box > li {
+  width: 20%;
+  display: inline;
+}
+.skill-box > li > button {
+  padding: 6px 26px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  /* width: 20%; */
+  margin-right: 10px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.experince-container {
+  background: rgb(208, 208, 208);
+  /* min-height: 200px; */
+  padding: 10px;
+  margin: 10px 0px;
+}
+.experince-container > div {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  width: 100%;
+}
+.experince-box {
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap; */
+  display: flex;
+  flex-basis: content;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.experince-box > div {
+  margin-top: 10px;
+}
+.experince-box > div > div {
+  display: flex;
+}
+.experince-box > li {
+  width: 20%;
+  display: inline;
+}
+.experince-box > li > button {
+  padding: 6px 26px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  /* width: 20%; */
+  margin-right: 10px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.education-container {
+  background: rgb(208, 208, 208);
+  /* min-height: 200px; */
+  padding: 10px;
+  margin: 10px 0px;
+}
+.education-container > div {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  width: 100%;
+}
+.education-box {
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap; */
+  display: flex;
+  flex-basis: content;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.education-box > div {
+  margin-top: 8px;
+}
+.education-box > div > div {
+  display: flex;
+}
+.education-box > li {
+  width: 20%;
+  display: inline;
+}
+.education-box > li > button {
+  padding: 6px 26px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  /* width: 20%; */
+  margin-right: 10px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.portfolio-container {
+  background: rgb(208, 208, 208);
+  /* min-height: 200px; */
+  padding: 10px;
+  margin: 10px 0px;
+}
+.portfolio-container > div {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  width: 100%;
+}
+.portfolio-box {
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap; */
+  display: flex;
+  flex-basis: content;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.portfolio-box > li {
+  width: 20%;
+  display: inline;
+}
+.portfolio-box > li > button {
+  padding: 6px 26px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  /* width: 20%; */
+  margin-right: 10px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.language-container {
+  background: rgb(208, 208, 208);
+  /* min-height: 200px; */
+  padding: 10px;
+  margin: 10px 0px;
+}
+.language-container > div {
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+  width: 100%;
+}
+.language-box {
+  /* flex-wrap: wrap; */
+  /* flex-wrap: wrap; */
+  display: flex;
+  flex-basis: content;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.language-box > li {
+  width: 20%;
+  display: inline;
+}
+.language-box > li > button {
+  padding: 6px 26px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  /* width: 20%; */
+  margin-right: 10px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.language-box > div {
+  display: flex;
+  margin-top: 10px;
+}
+.language-box > div > button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  font-size: 18px;
+}
+
+.about-text {
+  display: block !important;
+  margin: 20px 0px;
+}
+
+.see-more {
+  color: rgb(69, 69, 69);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Hide And Show Update Popup CSS */
+.hide-box {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 10px;
+  left: 0px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 0px auto;
+  padding: 20px 0px;
+  z-index: 111111111;
+  background: linear-gradient(#000000b6, #0000009b);
+}
+
+.hide-box-show {
+  display: flex !important;
+}

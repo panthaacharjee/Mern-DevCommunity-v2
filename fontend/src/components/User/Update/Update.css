@@ -1,0 +1,60 @@
+.form {
+  background-color: #c8c8c8;
+  padding: 20px 0px;
+  width: 30%;
+  /* text-align: center; */
+  border-radius: 15px;
+  position: relative;
+}
+.form > span {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+  font-size: 22px;
+  background: none;
+  border: none;
+}
+.form > h3 {
+  text-align: center;
+  margin-bottom: 14px;
+  margin-top: 29px;
+}
+
+.form > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  margin-top: 10px;
+}
+.form > div > input {
+  padding: 4px 8px;
+}
+.form > input {
+  margin: 0px auto;
+  display: block;
+  margin-top: 20px;
+  padding: 6px 16px;
+  cursor: pointer;
+}
+.form-img {
+  height: 310px;
+  /* width: 80%; */
+  /* margin: 0px auto; */
+}
+
+#updateImage {
+  display: flex;
+  justify-content: center;
+}
+
+/* About */
+.about-form {
+  width: 40%;
+}
+.jodit-workplace {
+  height: 220px !important;
+  overflow-y: auto;
+}
+.jodit-status-bar-link {
+  display: none;
+}

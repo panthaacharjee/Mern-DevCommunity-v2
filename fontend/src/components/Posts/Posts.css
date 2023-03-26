@@ -1,0 +1,50 @@
+.posts {
+  margin-top: 80px !important;
+  width: 80%;
+  margin: 0px auto;
+  position: relative;
+}
+
+/* Crate Post CSS */
+.create-post {
+  background-color: rgb(141, 141, 141);
+  border-radius: 10px;
+}
+.create-post > div {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.create-post > div > img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.create-post > div > input {
+  margin-left: 20px;
+  height: 50px;
+  width: 80%;
+  border-radius: 30px;
+  text-align: left;
+  padding: 0px 15px;
+  border: none;
+  cursor: text;
+}
+
+.create-post-box {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* left: 0; */
+}
+.hide {
+  display: none;
+}
+
+.create-post-form {
+  width: 70%;
+}
