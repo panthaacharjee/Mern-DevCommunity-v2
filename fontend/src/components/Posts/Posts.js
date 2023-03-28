@@ -5,6 +5,7 @@ import CreatePost from "./CreatePost";
 import "./Posts.css";
 import Loader from "../Loader/Loader";
 import dateFormat from "dateformat";
+import ImageGallery from "react-image-gallery";
 
 const Posts = () => {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ const Posts = () => {
                   </div>
                   <h4>{val.caption}</h4>
                   <p>{val.description}</p>
+                  <div>
+                    <ImageGallery items={val.images} />
+                  </div>
                 </div>
               );
             })}

@@ -1,21 +1,54 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
-import pic from "../../images/profilepng.png";
 import JoditEditor from "jodit-react";
+import { createPosts } from "../../redux/actions/postActions";
+import { toast } from "react-toastify";
 
 const CreatePost = () => {
+  const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.user);
-  const handleSubmit = () => {};
+  const { loading, success } = useSelector((state) => state.newPost);
+
+  const [avatar, setAvatar] = useState([]);
+  const handleChange = (e) => {
+    const files = Array.from(e.target.files);
+    setAvatar([]);
+    files.forEach((file) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        if (reader.readyState === 2) {
+          setAvatar((old) => [...old, reader.result]);
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+  };
 
   //Jodit Rich Text Editor
-  const [desc, setDesc] = useState();
+  const [desc, setDesc] = useState("Whats on your mind?");
   const editor = useRef(null);
-  const config = {
-    buttons: ["print"],
-  };
+
   //Create Post
   const [createPost, setCreatePost] = useState(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const myForm = new FormData();
+    myForm.set("caption", desc);
+    const data = {
+      caption: desc,
+      images: avatar,
+    };
+    dispatch(createPosts(data));
+  };
+
+  // useEffect(() => {
+  //   if (success) {
+  //     toast(success);
+  //   }
+  // }, []);
+
   return (
     <>
       {isAuthenticated
@@ -45,6 +78,7 @@ const CreatePost = () => {
                     <JoditEditor
                       ref={editor}
                       value={desc}
+                      name="caption"
                       onChange={(e) => {
                         setDesc(e);
                       }}
@@ -53,9 +87,10 @@ const CreatePost = () => {
                   <div id="updateImage">
                     <input
                       type="file"
-                      name="avatar"
+                      name="images"
                       multiple
                       accept="image/*"
+                      onChange={handleChange}
                     />
                   </div>
                   <input type="submit" />

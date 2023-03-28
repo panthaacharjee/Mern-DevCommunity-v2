@@ -6,6 +6,9 @@ const {
   GET_ALL_POST_REQUEST,
   GET_ALL_POST_SUCCESS,
   GET_ALL_POST_FAIL,
+  CREATE_POST_REQUEST,
+  CREATE_POST_SUCCESS,
+  CREATE_POST_FAIL,
 } = require("../constants/postConstants");
 
 // Get My Post
@@ -29,5 +32,20 @@ export const getAllPost = () => async (dispatch) => {
     dispatch({ type: GET_ALL_POST_SUCCESS, payload: data.posts });
   } catch (error) {
     dispatch({ type: GET_ALL_POST_FAIL, payload: error.response.data.message });
+  }
+};
+
+// Create A Post
+export const createPosts = (useForm) => async (dispatch) => {
+  try {
+    dispatch({ type: CREATE_POST_REQUEST });
+    const config = { headers: { "Content-Type": "application/json" } };
+
+    const { data } = await axios.post(`/api/v1/create/post`, useForm, config);
+
+    dispatch({ type: CREATE_POST_SUCCESS, payload: data });
+    // console.log(useForm);
+  } catch (error) {
+    dispatch({ type: CREATE_POST_FAIL, payload: error.response.data.message });
   }
 };

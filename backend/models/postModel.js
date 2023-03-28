@@ -3,19 +3,21 @@ const mongoose = require("mongoose");
 const postSchema = new mongoose.Schema({
   caption: {
     type: String,
-    required: [true, "Please enter post heading"],
+    // required: [true, "Please enter post heading"],
   },
   images: [
     {
-      image: {
-        public_id: {
-          type: String,
-          // required: true,
-        },
-        url: {
-          type: String,
-          // required: true,
-        },
+      public_id: {
+        type: String,
+        // required: true,
+      },
+      original: {
+        type: String,
+        // required: true,
+      },
+      thumbnail: {
+        type: String,
+        // required: true,
       },
     },
   ],

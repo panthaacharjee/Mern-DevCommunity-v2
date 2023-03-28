@@ -2,20 +2,28 @@ const catchAsyncError = require("../middlewares/catchAsyncError");
 const Post = require("../models/postModel");
 const User = require("../models/userModel");
 const ErrorHandler = require("../utils/errorhandler");
+const cloudinary = require("cloudinary").v2;
 
 //Create Post
 exports.createPost = catchAsyncError(async (req, res, next) => {
-  // const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
-  //   folder: "avatars",
-  //   width: 150,
-  //   crop: "scale",
-  // });
+  const urls = [];
+
+  for (var i = 0; i < req.body.images.length; i++) {
+    const result = await cloudinary.uploader.upload(req.body.images[i], {
+      folder: "post",
+    });
+    urls.push({
+      public_id: result.public_id,
+      original: result.secure_url,
+      thumbnail: result.secure_url,
+    });
+  }
 
   const newPostData = {
     caption: req.body.caption,
+    images: urls,
     owner: req.user._id,
   };
-
   const newPost = await Post.create(newPostData);
   const user = await User.findById(req.user._id);
   user.posts.push(newPost._id);
@@ -23,7 +31,8 @@ exports.createPost = catchAsyncError(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    post: newPost,
+    message: "Successfully Post created",
+    // data: urls,
   });
 });
 

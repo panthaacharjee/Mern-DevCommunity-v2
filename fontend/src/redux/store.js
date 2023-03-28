@@ -6,7 +6,11 @@ import {
   profileReducer,
   forgotPasswordReducer,
 } from "./reducers/userReducers";
-import { allPostReducer, myPostReducer } from "./reducers/postReducers";
+import {
+  allPostReducer,
+  createPostReducer,
+  myPostReducer,
+} from "./reducers/postReducers";
 
 const reducer = combineReducers({
   user: userReducer,
@@ -14,6 +18,7 @@ const reducer = combineReducers({
   forgotPassword: forgotPasswordReducer,
   myPosts: myPostReducer,
   posts: allPostReducer,
+  newPost: createPostReducer,
 });
 const middleware = [thunk];
 

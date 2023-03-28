@@ -1,3 +1,6 @@
+/* PLUGIN */
+@import "~react-image-gallery/styles/css/image-gallery.css";
+
 .posts {
   margin-top: 80px !important;
   width: 80%;
@@ -40,6 +43,7 @@
   justify-content: center;
   align-items: center;
   /* left: 0; */
+  z-index: 1111111;
 }
 .hide {
   display: none;

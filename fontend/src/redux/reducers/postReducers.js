@@ -5,6 +5,9 @@ const {
   GET_ALL_POST_REQUEST,
   GET_ALL_POST_SUCCESS,
   GET_ALL_POST_FAIL,
+  CREATE_POST_REQUEST,
+  CREATE_POST_SUCCESS,
+  CREATE_POST_FAIL,
 } = require("../constants/postConstants");
 
 export const myPostReducer = (state = { myPosts: [] }, action) => {
@@ -31,19 +34,21 @@ export const myPostReducer = (state = { myPosts: [] }, action) => {
 
 export const createPostReducer = (state = { post: {} }, action) => {
   switch (action.type) {
-    case GET_ALL_POST_REQUEST:
+    case CREATE_POST_REQUEST:
       return {
         loading: true,
-        posts: [],
+        ...state,
       };
-    case GET_ALL_POST_SUCCESS:
+    case CREATE_POST_SUCCESS:
       return {
         loading: false,
-        posts: action.payload,
+        post: action.payload,
+        success: action.payload,
       };
-    case GET_ALL_POST_FAIL:
+    case CREATE_POST_FAIL:
       return {
         loading: false,
+
         error: action.payload,
       };
     default:
