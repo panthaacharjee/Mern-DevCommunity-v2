@@ -11,6 +11,8 @@ exports.createPost = catchAsyncError(async (req, res, next) => {
   for (var i = 0; i < req.body.images.length; i++) {
     const result = await cloudinary.uploader.upload(req.body.images[i], {
       folder: "post",
+      height: 300,
+      width: 300,
     });
     urls.push({
       public_id: result.public_id,
@@ -38,7 +40,22 @@ exports.createPost = catchAsyncError(async (req, res, next) => {
 
 //Get All Post
 exports.getAllPosts = catchAsyncError(async (req, res, next) => {
-  const posts = await Post.find().populate("owner");
+  const posts = await Post.find()
+    .populate("owner")
+    .populate({
+      path: "comments",
+      populate: { path: "user", options: { strictPopulate: false } },
+    })
+    .populate({
+      path: "comments",
+      populate: {
+        path: "replies",
+        populate: {
+          path: "user",
+          options: { strictPopulate: false },
+        },
+      },
+    });
 
   res.status(200).json({
     success: true,
@@ -49,9 +66,10 @@ exports.getAllPosts = catchAsyncError(async (req, res, next) => {
 //Single Post
 exports.getPost = catchAsyncError(async (req, res, next) => {
   const post = await Post.findById(req.params.id);
+
   res.status(201).json({
     success: true,
-    post: post,
+    post,
   });
 });
 
@@ -92,14 +110,14 @@ exports.likeAndUnlikePost = catchAsyncError(async (req, res, next) => {
     await post.save();
     return res.status(200).json({
       success: true,
-      message: "Post Unliked",
+      post,
     });
   }
   post.likes.push(req.user.id);
   await post.save();
   return res.status(200).json({
     success: true,
-    message: "Post Liked",
+    post,
   });
 });
 
@@ -116,7 +134,6 @@ exports.updatePost = catchAsyncError(async (req, res, next) => {
 
   const updatePost = {
     caption: req.body.caption,
-    description: req.body.description,
   };
 
   const Newpost = await Post.findByIdAndUpdate(req.params.id, updatePost, {
@@ -130,7 +147,7 @@ exports.updatePost = catchAsyncError(async (req, res, next) => {
   });
 });
 
-// Create Comment and Update Comment
+// Create Comment
 exports.addComment = catchAsyncError(async (req, res, next) => {
   const post = await Post.findById(req.params.id);
   if (!post) {

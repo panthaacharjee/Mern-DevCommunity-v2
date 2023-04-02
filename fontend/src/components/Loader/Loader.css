@@ -5,6 +5,7 @@
   display: grid;
   place-items: center;
   max-width: 100%;
+  position: absolute;
 }
 
 .loading > div {

@@ -9,7 +9,9 @@ import {
 import {
   allPostReducer,
   createPostReducer,
+  likeAndUnlikeReducer,
   myPostReducer,
+  singlePostReducer,
 } from "./reducers/postReducers";
 
 const reducer = combineReducers({
@@ -19,6 +21,8 @@ const reducer = combineReducers({
   myPosts: myPostReducer,
   posts: allPostReducer,
   newPost: createPostReducer,
+  likeAndUnlike: likeAndUnlikeReducer,
+  post: singlePostReducer,
 });
 const middleware = [thunk];
 

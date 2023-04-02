@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllPost } from "../../redux/actions/postActions";
+import { getAllPost, likeAndUnlikePost } from "../../redux/actions/postActions";
 import CreatePost from "./CreatePost";
 import "./Posts.css";
 import Loader from "../Loader/Loader";
-import dateFormat from "dateformat";
-import ImageGallery from "react-image-gallery";
+import SinglePosts from "./SinglePosts";
 
 const Posts = () => {
   const dispatch = useDispatch();
@@ -25,26 +24,7 @@ const Posts = () => {
           <CreatePost />
           <div className="all-posts-container">
             {posts.map((val, ind) => {
-              const date = dateFormat(val.createdAt, " dS mmmm, yyyy");
-              // const agoDate = date - nowDate;
-              // // console.log(agoDate);
-
-              return (
-                <div className="all-posts-box" key={ind}>
-                  <div>
-                    <img src={val.owner.avatar.url} />
-                    <div>
-                      <p>{val.owner.name}</p>
-                      <p>{date}</p>
-                    </div>
-                  </div>
-                  <h4>{val.caption}</h4>
-                  <p>{val.description}</p>
-                  <div>
-                    <ImageGallery items={val.images} />
-                  </div>
-                </div>
-              );
+              return <SinglePosts val={val} key={ind} />;
             })}
           </div>
         </div>

@@ -35,8 +35,6 @@ const AvatarUpdate = ({ setAvatarUpdate }) => {
     dispatch(updateAvatar(myForm));
   };
   useEffect(() => {
-    if (user) {
-    }
     if (error) {
       return toast(error);
     }

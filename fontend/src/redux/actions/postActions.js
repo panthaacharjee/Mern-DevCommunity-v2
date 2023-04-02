@@ -9,6 +9,12 @@ const {
   CREATE_POST_REQUEST,
   CREATE_POST_SUCCESS,
   CREATE_POST_FAIL,
+  POST_LIKE_AND_UNLIKE_REQUEST,
+  POST_LIKE_AND_UNLIKE_SUCCESS,
+  POST_LIKE_AND_UNLIKE_FAIL,
+  GET_SINGLE_POST_REQUEST,
+  GET_SINGLE_POST_SUCCESS,
+  GET_SINGLE_POST_FAIL,
 } = require("../constants/postConstants");
 
 // Get My Post
@@ -35,6 +41,21 @@ export const getAllPost = () => async (dispatch) => {
   }
 };
 
+// Get Single Post
+export const getSinglePost = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: GET_SINGLE_POST_REQUEST });
+
+    const { data } = await axios.get(`/api/v1/get/post/${id}`);
+    dispatch({ type: GET_SINGLE_POST_SUCCESS, payload: data.post });
+  } catch (error) {
+    dispatch({
+      type: GET_SINGLE_POST_FAIL,
+      payload: error.response.data.message,
+    });
+  }
+};
+
 // Create A Post
 export const createPosts = (useForm) => async (dispatch) => {
   try {
@@ -47,5 +68,23 @@ export const createPosts = (useForm) => async (dispatch) => {
     // console.log(useForm);
   } catch (error) {
     dispatch({ type: CREATE_POST_FAIL, payload: error.response.data.message });
+  }
+};
+
+// Create A Post
+export const likeAndUnlikePost = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: POST_LIKE_AND_UNLIKE_REQUEST });
+    // const config = { headers: { "Content-Type": "application/json" } };
+
+    const { data } = await axios.get(`/api/v1/post/likeAndunlike/${id}`);
+
+    dispatch({ type: POST_LIKE_AND_UNLIKE_SUCCESS, payload: data });
+    // console.log(useForm);
+  } catch (error) {
+    dispatch({
+      type: POST_LIKE_AND_UNLIKE_FAIL,
+      payload: error.response.data.message,
+    });
   }
 };
